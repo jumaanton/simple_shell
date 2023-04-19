@@ -55,6 +55,20 @@ int main(void) {
             return (-1);
         }
 
+        // Check if user typed "env" and print the environment variables
+
+        if (strcmp(lineprinter, "env\n") == 0) {
+            // using environ to process environment variables
+
+            extern char **environ;
+
+            //iterating through the environ variables
+
+            for (int i = 0; environ[i] != NULL; i++) {
+                printf("%s\n", environ[i]);
+            }
+        }
+
         // Handling commands in the shell
         // were trying to omplement the strtok() func to handle commands
         // strtok() func takes in two arguments, the first is the string to be tokenized and the second is the delimeter
