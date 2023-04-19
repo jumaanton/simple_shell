@@ -20,8 +20,12 @@ int main(void) {
     //delim is a string of characters that are used to separate the input from the user
     const char *delim = " \n\t\r";
 
-    // declaring execution function
-    void cmd_exe(char **args);
+    // // declaring execution function
+    // // command execution prototype
+    // void cmd_exe(char **args);
+
+    // // getting pathname prototype
+    // char *get_pathname(char *args);
 
     // Adding an infinite loop to keep the shell running until the user exits
 
@@ -95,9 +99,6 @@ int main(void) {
 
         // executing the commands
         cmd_exe(tokens);
-
-
-
 
         // printing the input from lineprinter
         printf("%s\n", lineprinter);
