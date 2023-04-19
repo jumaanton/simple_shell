@@ -49,6 +49,12 @@ int main(void) {
             return (-1);
         }
 
+        // Check if user typed "exit" and exit the shell
+        if (strcmp(lineprinter, "exit\n") == 0) {
+            printf("Byeeeee!! Too bad you are leaving...\n");
+            return (-1);
+        }
+
         // Handling commands in the shell
         // were trying to omplement the strtok() func to handle commands
         // strtok() func takes in two arguments, the first is the string to be tokenized and the second is the delimeter
@@ -96,6 +102,7 @@ int main(void) {
         // for (int i = 0; i < numtokens; i++) {
         //     printf("%s\n", tokens[i]);
         // }
+        
 
         // executing the commands
         cmd_exe(tokens);

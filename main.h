@@ -8,4 +8,6 @@
 // function to execute the commands
 void cmd_exe(char **args);
 char *get_pathname(char *args);
+void exit_shell(void); // function to exit the shell
+
 
