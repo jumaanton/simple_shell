@@ -1,21 +1,18 @@
 #include "shell.h"
-
 /**
-* free_buffers - frees buffers
-* @buf: buffer to be freed
-*
-* Return: 0
-*/
-void free_buffers(char **buf)
+ *checker- checks to see weather its a built in function
+ *@cmd: tokenized user input
+ *@buf: line drived fromgetline function
+ *Return: 1 if cmd excuted 0 if cmd is not executed
+ */
+int checker(char **cmd, char *buf)
 {
-	int i = 0;
-
-	if (!buf || buf == NULL)
-		return;
-	while (buf[i])
+	if (handle_builtin(cmd, buf))
+		return (1);
+	else if (**cmd == '/')
 	{
-		free(buf[i]);
-		i++;
+		execution(cmd[0], cmd);
+		return (1);
 	}
-	free(buf);
+	return (0);
 }
