@@ -2,11 +2,11 @@
 #include "shell.h"
 
 /**
-* builtin - handles execution of builtin functions
+*handle_ builtin - handles execution of builtin functions
 * @command: tokenized commands
 * @line: input read from stdin
 *
-* Return: 1 if executed, 0 if not
+* Return: 1 if executed else return 0
 */
 int handle_builtin(char **command, char *line)
 {
