@@ -8,6 +8,10 @@
 * Return: 0
 */
 
+/*
+	*The code is a simple shell script that will read input from the user and execute it.
+*/
+
 int main(int ac, char **av, char *envp[])
 {
 	char *line = NULL, *pathcommand = NULL, *path = NULL;
