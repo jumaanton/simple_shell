@@ -1,7 +1,7 @@
-This is a man page for Simple_shell in Simple shell project for ALX- Holberton School.
+.SH Simple Shell Project.
 .TH man 1 "24 April 2023" "Simple Shell"                    "24 April 2023" "1.0"                                              "simple_shell man page"
 SH NAME
-Holberton Simple Shell
+
 - A simple UNIX command line interpreter.
 .SH SYNOPSIS
 .B ./hsh [options] [command_string | file]
