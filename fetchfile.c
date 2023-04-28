@@ -7,15 +7,15 @@
  * @num: number of digits in the binary number
  * Return: buffer
  */
-char *move_left(char *n, int size, int num)
+char *move_left(char *a, int size, int num)
 {
 	int i;
 	char *ptr;
 
-	for (i = 0, ptr = (n + size - num); i < num; i++, ptr++)
+	for (i = 0, ptr = (a + size - num); i < num; i++, ptr++)
 		*(a + i) = *ptr;
-	*(n + num) = '\0';
-	return (n);
+	*(a + num) = '\0';
+	return (a);
 }
 
 /**

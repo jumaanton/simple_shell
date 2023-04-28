@@ -5,6 +5,7 @@
 /**
  * _getenv - Gets the value of an environment variable.
  * @name: The name of the environment variable to retrieve.
+ *
  * @params: Pointer to the parameter structure containing the environment list.
  *
  * Return: A pointer to the value of the environment variable, or NULL if not.
@@ -13,7 +14,7 @@
  * linked list of environment variables contained in the parameter structure
  * 
  * If a match is found, the value associated with that variable is duplicated n
- * returned as a string. If no match is found, the function will return 0.
+ * returned as a string. If no match is found, the function will return NULL.
  */
 
 char *_getenv(char *name, param_t *params)
@@ -27,3 +28,4 @@ char *_getenv(char *name, param_t *params)
 		ptr = ptr->next;
 	}
 	return (NULL);
+}

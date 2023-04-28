@@ -1,12 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "shell.h"
 /**
  * _realloc - reallocates a memory block using malloc
+ * 
  * @ptr: old block
- *
  * @old_size: size of the old block
- *
+ * 
  * @new_size: size of the new block
  *
  * Return: pointer to new block

@@ -1,5 +1,7 @@
 #include <stdarg.h>
 #include "main.h"
+#include <stddef.h>
+#include <stdlib.h>
 
 #define BUFFER_SIZE 1024
 
@@ -114,7 +116,7 @@ int flush_buffer(char *buffer, int *index)
 {
 	int num = 0;
 
-	num = write(1, buffer, *index);
+	num =(write(1, buffer, *index));
 	*index = BUFFER_SIZE - 1;
 	while (*index >= 0)
 	{

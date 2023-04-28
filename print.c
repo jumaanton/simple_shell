@@ -53,3 +53,4 @@ void print_list_alias(list_t *head)
 		if (head->str != NULL)
 			_printf("%s=\'%s\'\n", head->str, head->val);
 	}
+}

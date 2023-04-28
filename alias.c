@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "shell.h"
 #include "main.h"
 #include "lists.h"
@@ -6,7 +7,9 @@
  * @params: Pointer to a param_t struct with the shell state and args.
  *
  * This function defines new aliases or prints existing aliases in the shell.
+ *
  * If called with no args, prints all existing aliases.
+ * 
  * If called with args, assumes each arg is an alias name or definition,
  * and performs the appropriate action.
  */

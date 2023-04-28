@@ -1,8 +1,10 @@
-#include <unistd.h>
+#include <stdlib.h>
 #include "shell.h"
 #include <stdio.h>
+#include <unistd.h>
 /**
  * process_string - process the next command into string tokens
+ *
  * @params: parameters
  *
  * Return: number of tokens
