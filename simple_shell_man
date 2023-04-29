@@ -1,0 +1,33 @@
+.SH Simple Shell Project.
+.TH man 1 "24 April 2023" "Simple Shell" man page                   "24 April 2023" "1.0"
+
+- A simple UNIX command line
+
+.SH DESCRIPTION
+compatible command language interpreter that reads and executes commands from standard input. It is conformed to the POSIX specifications
+
+
+ A prompt will appear for the user to enter and execute commands by typing command names and pressing the return key. A user can also channel commands into the program 
+The shell reads commands from the terminal and executes them.
+
+pwd
+prints the name of the current directory. 
+
+ls
+Lists the files in the current workinfg directory.
+
+cd
+Change the current working directory.
+
+env
+It prints the variables of the current enviroment.
+
+exit
+It will exit the shell where it is currently running.
+
+hsh
+A shell program written by Ken Thompson.
+
+      
+written by Albert Sang and Juma Anton .
+

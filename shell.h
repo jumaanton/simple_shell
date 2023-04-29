@@ -1,82 +1,80 @@
-#ifndef _SHELL_H
-#define _SHELL_H
-#define _GNU_SOURCE
+#ifndef SHELL_H
+#define SHELL_H
+
 #include <stdio.h>
-#include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
+#include <sys/types.h>
 #include <sys/wait.h>
-/**
- * struct param_s - structure used to hold all shell variables needed
- * @argv: command line argument from main function
- 
- * @buffer: input buffer
- 
- * @args: array of arguments
- * @lineCount: total line of input
- * @nextCommand: the next command to process
- * @argsCap: num of arguments the args array can hold
- * @lineCount: total line of input
- * @tokCount: num of tokens in a line input
- * @status: run command return status
- * @env_head: singly linked list of environment vars
- * @alias_head: singly linked list of aliases
- * Description: This structures hold all variables that passed into
- * other functions.
- */
-typedef struct param_s
-{
-	char **argv;
-	char *buffer;
-	char **args;
-	char *nextCommand;
-	unsigned int argsCap;
-	unsigned int lineCount;
-	unsigned int tokCount;
-	int status;
-	list_t *env_head;
-	list_t *alias_head;
-} param_t;
+#include <errno.h>
+#include <sys/stat.h>
+#include <limits.h>
 
 /**
- * struct op - a builtin function
- * @name: builtin name
- * @func: pointer to builtin function
+ * struct path_s - linked list structure for PATH variable
+ * @directory: directory to lookup
+ * @next: pointer to the next node
  */
-typedef struct op
-{
-	char *name;
-	void (*func)(param_t *);
-} op_t;
 
-int process_string(param_t *);
-char *_strdup(char *);
-void _alias(param_t *params);
-char *_strcpy(char *dest, const char *src);
-int _getline(param_t *);
-void set_alias(char *name, param_t *params);
-void make_alias(char *name, char *val, param_t *params);
-void print(char *name, param_t *params);
-void print_all_aliases(param_t *params);
-void print_list_env(list_t *);
-void print_list_alias(list_t *);
-void free_params(param_t *params);
-void write_error(param_t *params, char *msg);
-int _strcmp(char *, char *);
-int _strcmp_n(char *, char *, int n);
-char *_strtok(char *str, char *delim, char **savePtr);
-void run_command(param_t *);
-void **_realloc(char **ptr, unsigned int old_size, unsigned int new_size);
-void _printenv(param_t *);
-void sigint_handler(int);
-char *_getenv(char *name, param_t *params);
-void _setenv(param_t *params);
-void _unsetenv(param_t *params);
-char *get_file(param_t *params);
-void (*get_builtin(param_t *params))(param_t *);
-void _myExit(param_t *params);
-void _cd(param_t *params);
-void _clear(param_t *params);
+typedef struct path_s
+{
+	char *directory;
+	struct path_s *next;
+} linked_t;
+
+
+int _putchar(char c);
+
+/* exec.c */
+int execute_cmd(char **ar, char **env, char **av, char *line, char *nline,
+		int cmd_count);
+
+/* prompt.c */
+void shellPrompt(void);
+
+/* shell.c */
+char **tokenize(char *line);
+
+/* path functions */
+linked_t *create_linkedt(char *str);
+linked_t *addnodes_list(char *str, linked_t *list);
+char *_getenv(const char *name, char **env);
+char *path_handler(char *str, char **env);
+
+
+/* error_handling */
+void error_handler(char **argv, char **ar, int cmdcount_int, char *line,
+		   char *nline);
+
+/* str helper functions */
+int _strlen(char *buf);
+int _strcmp(char *s1, char *s2);
+char *_strdup(char *str);
+char *_concatenate(char *concatenate, char *s1, char *s2);
+char *_strconcat(char *s1, char *s2);
+
+/* builtin functions */
+int exit_handler(char **array, char *line, char *newline, int cmd_count);
+int cd_handler(char **array, char **env);
+int env_handler(char **env);
+int checkBuiltins(char **ar, char **env, char *line, char *newline,
+		  int cmd_count);
+
+
+/* strint functions */
+int _atoi(char *s);
+int tens_place(int i, char *s);
+char *print_int(int num);
+
+/* signal handler */
+void ctrlc_handler(int signum);
+int ctrld_handler(char *line);
+
+/* memory handling */
+char *_realloc(char *p);
+void free_list(linked_t *head);
+void free_tokens(char **t_array);
+void free_all(char *line, char *newline, char **t_array);
+
 #endif
