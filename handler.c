@@ -17,9 +17,7 @@ void ctrlc_handler(int signum)
 
 /**
  * ctrld_handler - Ctrl+D handler
- * 
- * @input: the main line buffer to free
- * 
+ * @input: the main line buffer to free 
  * Return: 0 on success
  */
 
