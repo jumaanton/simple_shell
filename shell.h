@@ -77,5 +77,4 @@ char *_realloc(char *p);
 void free_list(linked_t *head);
 void free_tokens(char **t_array);
 void free_all(char *line, char *newline, char **t_array);
-
 #endif

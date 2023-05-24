@@ -3,9 +3,13 @@
 /**
  * exit_handler - handles exit builtin
  * @array: array of strings commands for execution
+ *
  * @line: user input
+ *
  * @newline: user input with newline truncated
+ *
  * @cmd_count: no of commands entered by the user
+ *
  * Return: 0 on success, or exit code specified by user
  */
 int exit_handler(char **array, char *line, char *newline, int cmd_count)
